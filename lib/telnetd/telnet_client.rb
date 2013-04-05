@@ -11,7 +11,6 @@ class TelnetClient
 		@client = client
 
 		@port, @ip = Socket.unpack_sockaddr_in(client.getpeername)
-		puts "New connection from #{@ip}:#{@port}"
 	end
 
 	# Starts the client processing by sending the welcome message.
@@ -29,7 +28,6 @@ class TelnetClient
 	def close()
   		@client.print "\r\nClosing the connection. Bye!"
   		@client.close
-  		puts "Closed connection to #{@ip}:#{@port}"
 	end
 
 private

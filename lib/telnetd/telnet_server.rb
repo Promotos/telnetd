@@ -12,23 +12,31 @@ class TelnetServer
 
 	# Start the server.
 	def start
-		begin
-		puts "Telnet Server Daemon started."
-		server = TCPServer.open(2000)
-		loop {
+		@server_thread = Thread.new do
 			begin
-				client = TelnetClient.new(server.accept)
-				@client_list << client
-  				t = Thread.new do
-  					handleNewClient(client) 
-  				end
-  			rescue Exception => e 
-				puts "Client Error: #{e.message}" 
+			server = TCPServer.open(23)
+			loop {
+				begin
+					client = TelnetClient.new(server.accept)
+					@client_list << client
+	  				t = Thread.new do
+	  					handleNewClient(client) 
+	  				end
+	  			rescue Exception => e 
+					puts "Client Error: #{e.message}" 
+				end
+			}
+			rescue Interrupt => e
+				puts "Server is interrupted"
+			ensure
+				close_all()
 			end
-		}
-		ensure
-			close_all()
 		end
+	end
+
+	def stop
+		raise ArgumentError, "Server has not be started." if @server_thread.nil? or @server_thread.alive? == false
+		@server_thread.exit
 	end
 
 private

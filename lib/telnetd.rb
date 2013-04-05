@@ -5,10 +5,13 @@ require 'telnetd/telnet_server'
 class Telnetd
 
 	def self.run
-		t = Thread.new do
-			TelnetServer.new.start
-		end
+		telnetd = TelnetServer.new
+		telnetd.start
+		puts "Telnet server started."
+		puts "Press any key to stop."
 		STDIN.getc
+		telnetd.stop
+		puts "Telnet server stopped."
 	end
 
 end
