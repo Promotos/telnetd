@@ -9,5 +9,6 @@ Gem::Specification.new do |spec|
   spec.authors     = ["Promotos"]
   spec.email       = 'promotos@gmx.de'
   spec.files = FileList['lib/**/*.rb', 'bin/*', '[A-Z]*', 'test/**/*'].to_a
+  spec.executables << 'telnetd'
   spec.homepage    = 'http://rubygems.org/gems/telnetd'
 end
