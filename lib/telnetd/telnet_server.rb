@@ -10,7 +10,11 @@ class TelnetServer
 		@client_list = []
 	end
 
-	# Start the server.
+	# Start the server in a new thread. This method will return immediately after the server thread is running.
+	# You must use the same instance of the TelnetServer class to stop an existing server by calling the stop
+	# method. Otherwise the socket listening thread could not be stopped.
+	# * By default the server creates an socket listening on port 23.
+	# * Each new connection on this server will be handled by a separate thread.
 	def start
 		@server_thread = Thread.new do
 			begin
@@ -34,6 +38,10 @@ class TelnetServer
 		end
 	end
 
+	# Used to stop a running server instance.
+	# This method will cause all connected clients to be disconnected.
+	# ===== Throws
+	# * ArgumentError if server is not running or server thread is not alive. Maybe you miss to start the server first.
 	def stop
 		raise ArgumentError, "Server has not be started." if @server_thread.nil? or @server_thread.alive? == false
 		@server_thread.exit
