@@ -4,6 +4,7 @@ require 'telnetd/telnet_server'
 
 class Telnetd
 
+	# Command line interface wrapper
 	def self.run
 		telnetd = TelnetServer.new
 		telnetd.start

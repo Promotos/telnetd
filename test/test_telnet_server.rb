@@ -6,6 +6,7 @@ require 'telnetd/telnet_server'
 
 class TelnetServerTest < Test::Unit::TestCase
 
+	# Test get the welcome message from the telnet server
 	def test_get_welcome_message
 		server = TelnetServer.new
 		server.start()
