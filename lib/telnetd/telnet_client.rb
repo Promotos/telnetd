@@ -1,6 +1,8 @@
 # Represent a telnet client. 
 # This class is used to be executed in a single thread
 
+require 'telnetd/command_registry'
+
 class TelnetClient
 
 	# Create a new instance of the telnet client
@@ -9,6 +11,7 @@ class TelnetClient
 	def initialize(client)
 		raise ArgumentError, "Client not connected" if client.closed?
 		@client = client
+		@command_registry = CommandRegistry.new
 
 		@port, @ip = Socket.unpack_sockaddr_in(client.getpeername)
 	end
@@ -20,30 +23,49 @@ class TelnetClient
 		promt()
 		while line = @client.gets
 			process_cmd(line)
+
+			if @client.closed?
+				return
+			end
+
   			promt()
 		end
 	end
 
 	# Close the client connection with sending a bye message and close the socket.
 	def close()
-  		@client.print "\r\nClosing the connection. Bye!"
+  		print("\r\nClosing the connection. Bye!")
   		@client.close
+	end
+
+	# Used to print the content to the client socket.
+	# ==== Arguments
+	# *+content+ The content to be send to the client
+	def print(content)
+		@client.print(content)
+	end
+
+	# Used to print the content to client and add a cariage return '\r' and newline '\n'
+	# at the end of the content.
+	# *+content+ The content to be send to the client
+	def println(content)
+		print("#{content}\r\n")
 	end
 
 private
 
 	def process_cmd(cmd)
-		puts cmd
+		@command_registry.handle(self, cmd)
 	end
 
 	def promt
-		@client.print "\r\n>>"
+		print("\r\n>>")
 	end
 
 	def welcome_message
-		@client.print "Welcome to telnetd.\r\n"
-		@client.print "===================\r\n"
-		@client.print "Type 'help' to get a list of all commands or 'exit' to end the session.\r\n"
+		println("Welcome to telnetd.")
+		println("===================")
+		println("Type 'help' to get a list of all commands or 'exit' to end the session.")
 	end
 
 end

@@ -11,11 +11,27 @@ class TelnetServerTest < Test::Unit::TestCase
 		server = TelnetServer.new
 		server.start()
 
-		s = TCPSocket.open("localhost", 23)
-		line = s.gets
-		s.close
+		client = TCPSocket.open("localhost", 23)
+		line = client.gets()
+		client.print("exit\r\n")
+		client.close()
 
 		assert_equal("Welcome to telnetd.\r\n", line)
+		server.stop()
+	end
+
+	#Test if exit command closes the connection
+	def test_exit_close
+		server = TelnetServer.new
+		server.start()
+
+		client = TCPSocket.open("localhost", 23)
+		welcome_msg = client.recv(200)
+		client.print("exit\r\n")
+		bye_msg = client.read
+		assert_equal("\r\nClosing the connection. Bye!", bye_msg)
+
+		client.close()
 		server.stop()
 	end
 
