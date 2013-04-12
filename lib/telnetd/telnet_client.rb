@@ -35,14 +35,14 @@ class TelnetClient
 	# Close the client connection with sending a bye message and close the socket.
 	def close()
   		print("\r\nClosing the connection. Bye!")
-  		@client.close
+  		@client.close unless @client.closed?
 	end
 
 	# Used to print the content to the client socket.
 	# ==== Arguments
 	# *+content+ The content to be send to the client
 	def print(content)
-		@client.print(content)
+		@client.print(content) unless @client.closed?
 	end
 
 	# Used to print the content to client and add a cariage return '\r' and newline '\n'

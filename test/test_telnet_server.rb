@@ -12,11 +12,12 @@ class TelnetServerTest < Test::Unit::TestCase
 		server.start()
 
 		client = TCPSocket.open("localhost", 23)
-		line = client.gets()
+		wait
+		line = client.recv(19)
 		client.print("exit\r\n")
-		client.close()
+		wait
 
-		assert_equal("Welcome to telnetd.\r\n", line)
+		assert_equal("Welcome to telnetd.", line)
 		server.stop()
 	end
 
@@ -26,13 +27,19 @@ class TelnetServerTest < Test::Unit::TestCase
 		server.start()
 
 		client = TCPSocket.open("localhost", 23)
+		wait
 		welcome_msg = client.recv(200)
 		client.print("exit\r\n")
+		
 		bye_msg = client.read
 		assert_equal("\r\nClosing the connection. Bye!", bye_msg)
-
-		client.close()
+		wait
 		server.stop()
+	end
+
+private 
+	def wait
+		sleep(0.1)
 	end
 
 end

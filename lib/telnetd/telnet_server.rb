@@ -34,8 +34,10 @@ class TelnetServer
 				puts "Server is interrupted"
 			ensure
 				close_all()
+				server.close
 			end
 		end
+		@server_thread.abort_on_exception = true
 	end
 
 	# Used to stop a running server instance.
@@ -44,7 +46,11 @@ class TelnetServer
 	# * ArgumentError if server is not running or server thread is not alive. Maybe you miss to start the server first.
 	def stop
 		raise ArgumentError, "Server has not be started." if @server_thread.nil? or @server_thread.alive? == false
-		@server_thread.exit
+		#@server_thread.exit
+		Thread.kill(@server_thread)
+
+		# 100 milliseconds delay needed to realease system resources
+		sleep(0.1)
 	end
 
 private
