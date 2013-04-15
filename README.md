@@ -8,15 +8,16 @@ Simple ruby telnet server with build in commands.
 
 Commands
 ========
+- Broadcast
+- Cat
+- Copy
+- Del
 - Exit
 - Help
-- Touch
-- Cat
-- Stats
-- Uptime
-- Broadcast
-- Who
+- Pwd
 - Mkdir
-- Del
 - Move
-- Copy
+- Stats
+- Touch
+- Uptime
+- Who
