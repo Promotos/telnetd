@@ -19,5 +19,5 @@ Commands
 - Move
 - Stats
 - Touch
-- Uptime
+- *Uptime
 - Who

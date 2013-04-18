@@ -2,6 +2,7 @@ require 'telnetd/cmd/unknown_cmd'
 require 'telnetd/cmd/exit_cmd'
 require 'telnetd/cmd/help_cmd'
 require 'telnetd/cmd/uptime_cmd'
+require 'telnetd/cmd/pwd_cmd'
 
 # Command Registry used to collect and manage the build in commands
 # for the telnetd
@@ -15,7 +16,8 @@ class CommandRegistry
 		@commands = { 
 			"exit" => ExitCmd.new,
 			"help" => HelpCmd.new,
-			"uptime" => UptimeCmd.new
+			"uptime" => UptimeCmd.new,
+			"pwd" => PwdCmd.new
 		}
 	end
 
