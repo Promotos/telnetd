@@ -7,6 +7,7 @@ class ClientContext
 	# Read the client connection start timestamp.
 	attr_reader :start_time
 
+	# Read the current working directory of the client
 	attr_reader :path
 
 	# Create a new instance of the context
