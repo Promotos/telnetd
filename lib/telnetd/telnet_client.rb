@@ -1,9 +1,11 @@
-# Represent a telnet client. 
-# This class is used to be executed in a single thread
-
 require 'telnetd/command_registry'
 
+# Represent a telnet client. 
+# This class is used to be executed in a single thread
 class TelnetClient
+
+	# Read access to the command registry
+	attr_reader :command_registry
 
 	# Create a new instance of the telnet client
 	# ==== Arguments

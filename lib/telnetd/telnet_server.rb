@@ -1,8 +1,7 @@
-# The Telnet daemon main class. Create a new thread for each client
-
 require 'socket'
 require 'telnetd/telnet_client'
 
+# The Telnet daemon main class. Create a new thread for each client
 class TelnetServer
 
 	# Create a new instance of the Telnet Server class.

@@ -1,7 +1,6 @@
-# telnetd console runner
-
 require 'telnetd/telnet_server'
 
+# telnetd console runner
 class Telnetd
 
 	# Command line interface wrapper

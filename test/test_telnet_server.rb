@@ -1,9 +1,8 @@
-# Tests used for the telnet server
-
 require 'test/unit'
 require 'socket'
 require 'telnetd/telnet_server'
 
+# Tests used for the telnet server
 class TelnetServerTest < Test::Unit::TestCase
 
 	# Test get the welcome message from the telnet server

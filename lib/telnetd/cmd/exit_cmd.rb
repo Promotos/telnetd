@@ -11,4 +11,8 @@ class ExitCmd
 		client.close()
 	end
 
+	# Describe the exit command
+	def describe
+		"Close the connetion to the server."
+	end
 end

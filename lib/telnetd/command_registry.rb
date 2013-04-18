@@ -1,14 +1,19 @@
-# Command Registry used to collect and manage the build in commands
-# for the telnetd
-
 require 'telnetd/cmd/unknown_cmd'
 require 'telnetd/cmd/exit_cmd'
+require 'telnetd/cmd/help_cmd'
 
+# Command Registry used to collect and manage the build in commands
+# for the telnetd
 class CommandRegistry
+
+	# Read access to the commands
+	attr_reader :commands
 
 	# Create a new instance of the command registry.
 	def initialize
-		@commands = { "exit" => ExitCmd.new }
+		@commands = { 
+			"exit" => ExitCmd.new,
+			"help" => HelpCmd.new }
 	end
 
 	# Handle a client command by selection the command from
