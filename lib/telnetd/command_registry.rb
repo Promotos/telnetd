@@ -1,6 +1,7 @@
 require 'telnetd/cmd/unknown_cmd'
 require 'telnetd/cmd/exit_cmd'
 require 'telnetd/cmd/help_cmd'
+require 'telnetd/cmd/uptime_cmd'
 
 # Command Registry used to collect and manage the build in commands
 # for the telnetd
@@ -13,7 +14,9 @@ class CommandRegistry
 	def initialize
 		@commands = { 
 			"exit" => ExitCmd.new,
-			"help" => HelpCmd.new }
+			"help" => HelpCmd.new,
+			"uptime" => UptimeCmd.new
+		}
 	end
 
 	# Handle a client command by selection the command from

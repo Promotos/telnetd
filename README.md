@@ -13,7 +13,7 @@ Commands
 - Copy
 - Del
 - Exit
-- Help
+- *Help
 - Pwd
 - Mkdir
 - Move

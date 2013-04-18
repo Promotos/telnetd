@@ -1,4 +1,5 @@
 require 'telnetd/command_registry'
+require 'telnetd/client_context'
 
 # Represent a telnet client. 
 # This class is used to be executed in a single thread
@@ -7,6 +8,9 @@ class TelnetClient
 	# Read access to the command registry
 	attr_reader :command_registry
 
+	# Read the client context instance
+	attr_reader :context
+
 	# Create a new instance of the telnet client
 	# ==== Arguments
 	# *+client+ The socket client connection to be wrapped. Must be connected.
@@ -14,6 +18,7 @@ class TelnetClient
 		raise ArgumentError, "Client not connected" if client.closed?
 		@client = client
 		@command_registry = CommandRegistry.new
+		@context = ClientContext.new
 
 		@port, @ip = Socket.unpack_sockaddr_in(client.getpeername)
 	end

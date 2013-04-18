@@ -3,4 +3,13 @@
 # A class instance is valid as long the associated client is conntected.
 
 class ClientContext
+
+	# Read the client connection start timestamp.
+	attr_reader :start_time
+
+	# Create a new instance of the context
+	def initialize
+		@start_time = Time.now
+	end
+
 end
