@@ -17,6 +17,7 @@ class ClientContext
 	end
 
 private
+	# Get the application startup path
 	def application_path
 		 return File.dirname(__FILE__)
 	end
