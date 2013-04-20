@@ -11,11 +11,13 @@ Commands
 - Broadcast
 - Cat
 - Copy
+- Cd
 - Del
+- Dir
 - Exit
 - Exec
 - *Help
-- Pwd
+- *Pwd
 - Mkdir
 - Move
 - Stats
