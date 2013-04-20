@@ -1,7 +1,8 @@
+require 'pathname'
+
 # Client context instance.
 # Used to handle all informations relevant for a connected client
 # A class instance is valid as long the associated client is conntected.
-
 class ClientContext
 
 	# Read the client connection start timestamp.
@@ -13,13 +14,13 @@ class ClientContext
 	# Create a new instance of the context
 	def initialize
 		@start_time = Time.now
-		@path = application_path
+		@path = Pathname.new(application_path)
 	end
 
 	# Used to list the folders of the current working directory
 	def list_folders
 		result = []
-		Dir.glob("#{@path}/*").each { |path|
+		@path.each_child { |path|
 			result << path if File::directory?(path)
 		}
 		return result
@@ -28,7 +29,7 @@ class ClientContext
 	# Used to list the files of the current working directory
 	def list_files
 		result = []
-		Dir.glob("#{@path}/*").each { |path|
+		@path.each_child { |path|
 			result << path if File::file?(path)
 		}
 		return result

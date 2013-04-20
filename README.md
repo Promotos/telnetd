@@ -13,7 +13,7 @@ Commands
 - Copy
 - Cd
 - Del
-- Dir
+- *Dir
 - Exit
 - Exec
 - *Help

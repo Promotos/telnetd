@@ -35,6 +35,9 @@ private
 
 	def folders(context)
 		result = ""
+
+		puts context.list_folders
+
 		context.list_folders.each { |folder|
 			result +=  "\r\n\t%-40s  \t %-10s" % [Pathname.new(folder).basename, "<DIR>"]
 		}
