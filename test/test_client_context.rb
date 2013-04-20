@@ -12,4 +12,8 @@ class TestClientContext < Test::Unit::TestCase
 		assert(context.start_time < Time.now, "Expect start time before now.")
 	end
 
+	def test_list
+		context = ClientContext.new
+		puts context.list
+	end
 end

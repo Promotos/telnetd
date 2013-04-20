@@ -16,6 +16,10 @@ class ClientContext
 		@path = application_path
 	end
 
+	def list
+		Dir.glob("#{path}/*")
+	end
+
 private
 	# Get the application startup path
 	def application_path
