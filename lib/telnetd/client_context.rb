@@ -16,9 +16,23 @@ class ClientContext
 		@path = application_path
 	end
 
-	def list
-		Dir.glob("#{path}/*")
+	# Used to list the folders of the current working directory
+	def list_folders
+		result = []
+		Dir.glob("#{@path}/*").each { |path|
+			result << path if File::directory?(path)
+		}
+		return result
 	end
+
+	def list_files
+		result = []
+		Dir.glob("#{@path}/*").each { |path|
+			result << path if File::file?(path)
+		}
+		return result
+	end
+
 
 private
 	# Get the application startup path
