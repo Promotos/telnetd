@@ -12,11 +12,13 @@ class TestClientContext < Test::Unit::TestCase
 		assert(context.start_time < Time.now, "Expect start time before now.")
 	end
 
+	# Test list the available folders.
 	def test_list_folders
 		context = ClientContext.new
 		assert(context.list_folders.empty? == false)
 	end
 
+	# Test list the available files.
 	def test_list_files
 		context = ClientContext.new
 		assert(context.list_files.empty? == false)

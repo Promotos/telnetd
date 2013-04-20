@@ -25,6 +25,7 @@ class ClientContext
 		return result
 	end
 
+	# Used to list the files of the current working directory
 	def list_files
 		result = []
 		Dir.glob("#{@path}/*").each { |path|
@@ -32,7 +33,6 @@ class ClientContext
 		}
 		return result
 	end
-
 
 private
 	# Get the application startup path
