@@ -35,6 +35,17 @@ class ClientContext
 		return result
 	end
 
+	# Change the dirctory to the path of the argument
+	# ==== Argument
+	# *+arg+ The path argument. May contain '..' to navigate to the parent folder
+	# ==== Result
+	# * An error message if the requested path does not exists
+	def cd(arg)
+		newpath = @path.join(Pathname.new(arg))
+		return "Path does not exists." unless newpath.exist?
+		@path = newpath
+	end
+
 private
 	# Get the application startup path
 	def application_path

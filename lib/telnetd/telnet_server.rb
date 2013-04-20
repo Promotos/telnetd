@@ -26,7 +26,9 @@ class TelnetServer
 	  					handleNewClient(client) 
 	  				end
 	  			rescue Exception => e 
-					puts "Client Error: #{e.message}" 
+					puts "Client Error: #{e.message}"
+					puts e.inspect
+					puts e.backtrace
 				end
 			}
 			rescue Interrupt => e
@@ -63,7 +65,9 @@ private
 		begin
 			client.handle()
   		rescue Exception => e 
-			puts "Client Error: #{e.message}" 
+			puts "Client Error: #{e.message}"
+			puts e.inspect
+			puts e.backtrace 
 		end			
 	end
 

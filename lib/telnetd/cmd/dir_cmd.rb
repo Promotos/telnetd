@@ -7,7 +7,7 @@ class DirCmd
 	# Shows the folder and files of the present working directory.
 	# ==== Arguments
 	# *+client+ The client to handle the command for
-	# *+commandtime+ The command string content
+	# *+command+ The command string content
 	def handle(client, command)
 		client.println(format(client.context))
 	end
