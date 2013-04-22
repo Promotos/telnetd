@@ -3,11 +3,10 @@ telnetd
 
 Simple ruby telnet server with build in commands.
 
-
-
-
 Commands available
 ==================
+- Cat
+- Cd
 - Dir
 - Exit
 - Help
@@ -18,16 +17,13 @@ Commands available
 Commands planned
 ==================
 - Broadcast
-- Cat
 - Copy
-- Cd
 - Del
 - Exec
 - Mkdir
 - Move
 - Stats
 - Who
-
 
 Known Issues
 ============
