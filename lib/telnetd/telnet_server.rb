@@ -1,6 +1,7 @@
 require 'socket'
 require 'telnetd/telnet_client'
 
+module Telnetd
 # The Telnet daemon main class. Create a new thread for each client
 class TelnetServer
 
@@ -70,5 +71,5 @@ private
 			puts e.backtrace 
 		end			
 	end
-
+end
 end

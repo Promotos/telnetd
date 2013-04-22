@@ -1,5 +1,6 @@
 require 'fileutils'
 
+module Telnetd
 #Touch command implementation
 class TouchCmd
 
@@ -24,4 +25,5 @@ class TouchCmd
 		"Create a new file with the new name provided as argument."
 	end
 
+end
 end

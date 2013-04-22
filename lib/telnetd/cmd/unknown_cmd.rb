@@ -1,5 +1,6 @@
-# Handle an unknown command
 
+module Telnetd
+# Handle an unknown command
 class UnknownCmd
 
 	# Handle an unknown command by echo the provided command with a string that
@@ -12,5 +13,5 @@ class UnknownCmd
 		client.println("Unknown command \"#{command}\"")
 		client.println("Type \"help\" for a full list of available commands.")
 	end
-
+end
 end

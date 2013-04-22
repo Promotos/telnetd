@@ -1,4 +1,5 @@
 
+module Telnetd
 # Cat command implementation
 class CatCmd
 
@@ -33,5 +34,5 @@ class CatCmd
 	def describe
 		"Print the content of the file to the client"
 	end
-
+end
 end

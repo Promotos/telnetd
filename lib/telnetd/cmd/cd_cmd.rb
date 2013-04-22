@@ -1,3 +1,5 @@
+
+module Telnetd
 # Handle the cd command with the one argument passed
 class CdCmd
 
@@ -27,5 +29,5 @@ class CdCmd
 	def describe
 		"Change the working directory with the passed argument. Use '..' to navigate upwards."
 	end
-
+end
 end

@@ -1,5 +1,6 @@
-# Help command is used to display all available commands with a one line description
 
+module Telnetd
+# Help command is used to display all available commands with a one line description
 class HelpCmd
 
 	# Used to show all available commands to the client
@@ -17,5 +18,5 @@ class HelpCmd
 	def describe
 		"Show the list of all available commands."
 	end
-
+end
 end

@@ -2,4 +2,6 @@
 
 require 'telnetd'
 
-Telnetd.run
+module Telnetd
+	Telnetd.run
+end

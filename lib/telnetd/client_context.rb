@@ -1,5 +1,6 @@
 require 'pathname'
 
+module Telnetd
 # Client context instance.
 # Used to handle all informations relevant for a connected client
 # A class instance is valid as long the associated client is conntected.
@@ -51,4 +52,5 @@ private
 	def application_path
 		 return File.dirname(__FILE__)
 	end
+end
 end

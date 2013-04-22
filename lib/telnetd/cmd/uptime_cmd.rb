@@ -1,3 +1,5 @@
+
+module Telnetd
 # Uptime command to show the client connection time
 class UptimeCmd
 
@@ -14,4 +16,5 @@ class UptimeCmd
 	def describe
 		"Show the client connection uptime."
 	end
+end
 end

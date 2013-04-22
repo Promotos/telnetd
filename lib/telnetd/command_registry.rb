@@ -8,6 +8,7 @@ require 'telnetd/cmd/cd_cmd'
 require 'telnetd/cmd/touch_cmd'
 require 'telnetd/cmd/cat_cmd'
 
+module Telnetd
 # Command Registry used to collect and manage the build in commands
 # for the telnetd
 class CommandRegistry
@@ -52,4 +53,5 @@ private
 	def handle_unknown_command(client, command)
 		UnknownCmd.new.handle(client, command)
 	end
+end
 end

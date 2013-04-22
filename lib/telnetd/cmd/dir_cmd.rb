@@ -1,5 +1,6 @@
 require 'pathname'
 
+module Telnetd
 # Dir command implementation
 class DirCmd
 
@@ -48,4 +49,5 @@ private
 		}
 		return result		
 	end
+end
 end

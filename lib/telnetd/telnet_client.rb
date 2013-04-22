@@ -1,6 +1,7 @@
 require 'telnetd/command_registry'
 require 'telnetd/client_context'
 
+module Telnetd
 # Represent a telnet client. 
 # This class is used to be executed in a single thread
 class TelnetClient
@@ -30,11 +31,9 @@ class TelnetClient
 		promt()
 		while line = @client.gets
 			process_cmd(line)
-
 			if @client.closed?
 				return
 			end
-
   			promt()
 		end
 	end
@@ -74,5 +73,5 @@ private
 		println("===================")
 		println("Type 'help' to get a list of all commands or 'exit' to end the session.")
 	end
-
+end
 end

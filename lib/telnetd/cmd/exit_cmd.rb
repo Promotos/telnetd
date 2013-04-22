@@ -1,5 +1,6 @@
-# Exit command used to close a client connection
 
+module Telnetd
+# Exit command used to close a client connection
 class ExitCmd
 
 	# Handle the exit command by closing the client connection.
@@ -15,4 +16,5 @@ class ExitCmd
 	def describe
 		"Close the connetion to the server."
 	end
+end
 end

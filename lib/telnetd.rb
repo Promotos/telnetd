@@ -1,5 +1,6 @@
 require 'telnetd/telnet_server'
 
+module Telnetd
 # telnetd console runner
 class Telnetd
 
@@ -13,5 +14,5 @@ class Telnetd
 		telnetd.stop
 		puts "Telnet server stopped."
 	end
-
+end
 end
