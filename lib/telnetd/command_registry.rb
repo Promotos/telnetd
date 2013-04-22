@@ -6,6 +6,7 @@ require 'telnetd/cmd/pwd_cmd'
 require 'telnetd/cmd/dir_cmd'
 require 'telnetd/cmd/cd_cmd'
 require 'telnetd/cmd/touch_cmd'
+require 'telnetd/cmd/cat_cmd'
 
 # Command Registry used to collect and manage the build in commands
 # for the telnetd
@@ -17,6 +18,7 @@ class CommandRegistry
 	# Create a new instance of the command registry.
 	def initialize
 		@commands = { 
+			"cat" => CatCmd.new,
 			"exit" => ExitCmd.new,
 			"help" => HelpCmd.new,
 			"uptime" => UptimeCmd.new,

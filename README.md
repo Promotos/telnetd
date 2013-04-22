@@ -27,3 +27,8 @@ Commands planned
 - Move
 - Stats
 - Who
+
+
+Known Issues
+============
+- Cat cmd does not handle line breaks correct
