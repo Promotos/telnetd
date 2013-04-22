@@ -5,6 +5,7 @@ require 'telnetd/cmd/uptime_cmd'
 require 'telnetd/cmd/pwd_cmd'
 require 'telnetd/cmd/dir_cmd'
 require 'telnetd/cmd/cd_cmd'
+require 'telnetd/cmd/touch_cmd'
 
 # Command Registry used to collect and manage the build in commands
 # for the telnetd
@@ -21,7 +22,8 @@ class CommandRegistry
 			"uptime" => UptimeCmd.new,
 			"pwd" => PwdCmd.new,
 			"dir" => DirCmd.new,
-			"cd" => CdCmd.new
+			"cd" => CdCmd.new,
+			"touch" => TouchCmd.new
 		}
 	end
 

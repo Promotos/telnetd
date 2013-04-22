@@ -7,7 +7,12 @@ class CdCmd
 	# *+client+ The client to handle the command for
 	# *+command+ The command string content
 	def handle(client, command)
-		client.println(cd(client.context, command.split(' ')[1]))
+		args = command.split(' ')
+		if(args.length == 2)
+			client.println(cd(client.context, args[1]))
+		else
+			client.println("Missing the folder name argument.")
+		end
 	end
 
 	# Execute the cd command against the client context.
