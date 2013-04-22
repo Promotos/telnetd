@@ -10,7 +10,7 @@ class UnknownCmd
 	# *+client+ The client to handle the command for
 	# *+command+ The command string content
 	def handle(client, command)
-		client.println("Unknown command \"#{command}\"")
+		client.println("Unknown command \"#{command.dump}\"")
 		client.println("Type \"help\" for a full list of available commands.")
 	end
 end

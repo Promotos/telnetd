@@ -59,8 +59,8 @@ class TelnetClient
 	end
 
 private
-
 	def process_cmd(cmd)
+		cmd.strip!
 		@command_registry.handle(self, cmd)
 	end
 

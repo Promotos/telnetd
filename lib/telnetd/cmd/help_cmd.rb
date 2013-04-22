@@ -11,7 +11,6 @@ class HelpCmd
 		client.command_registry.commands.each { |name,cmd| 
 			client.println("#{name} \t #{cmd.describe}") 
 		}
-		#client.println("#{client.command_registry}")
 	end
 
 	# Describe the help command

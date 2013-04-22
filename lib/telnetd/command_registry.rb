@@ -46,7 +46,6 @@ class CommandRegistry
 
 private
 	def strip_cmd(command)
-		command.strip!
 		return command.split(' ')[0]
 	end
 
