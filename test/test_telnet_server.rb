@@ -2,6 +2,7 @@ require 'test/unit'
 require 'socket'
 require 'telnetd/telnet_server'
 
+module Telnetd
 # Tests used for the telnet server
 class TelnetServerTest < Test::Unit::TestCase
 
@@ -41,4 +42,5 @@ private
 		sleep(0.1)
 	end
 
+end
 end

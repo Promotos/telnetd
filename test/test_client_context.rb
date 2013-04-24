@@ -2,6 +2,7 @@
 require 'test/unit'
 require 'telnetd/client_context'
 
+module Telnetd
 # Tests for the client context
 class TestClientContext < Test::Unit::TestCase
 
@@ -23,4 +24,5 @@ class TestClientContext < Test::Unit::TestCase
 		context = ClientContext.new
 		assert(context.list_files.empty? == false)
 	end
+end
 end

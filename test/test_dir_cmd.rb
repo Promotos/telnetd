@@ -3,6 +3,7 @@ require 'test/unit'
 require 'telnetd/client_context'
 require 'telnetd/cmd/dir_cmd'
 
+module Telnetd
 # Tests for the dir command
 class TestDirCmd < Test::Unit::TestCase
 
@@ -14,4 +15,5 @@ class TestDirCmd < Test::Unit::TestCase
 		assert(dir.format(ClientContext.new).include?("telnet_server.rb"))
 	end
 
+end
 end
