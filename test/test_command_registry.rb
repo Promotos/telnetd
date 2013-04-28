@@ -10,5 +10,10 @@ class TestCommandRegistry < Test::Unit::TestCase
 		cr = CommandRegistry.new
 		assert_equal("abc", cr.send("strip_cmd", "abc  "))
 	end
+
+	def test_strip_backspace
+		cr = CommandRegistry.new
+		assert_equal("cat", cr.send("strip_cmd", "kat\b\b\bcat"))
+	end
 end
 end

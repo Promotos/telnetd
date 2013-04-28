@@ -40,13 +40,22 @@ class CommandRegistry
 		if @commands.has_key? cmd
 			@commands[cmd].handle(client, command)
 		else
-			handle_unknown_command(client, command)
+			handle_unknown_command(client, cmd)
 		end
 	end
 
 private
 	def strip_cmd(command)
-		return command.split(' ')[0]
+	    result = ""
+		command = command.split(' ')[0]
+		command.each_char { |c|
+			if c.eql?("\b")
+				result.chop!
+			else
+				result += c
+			end
+		}
+		return result
 	end
 
 	def handle_unknown_command(client, command)
