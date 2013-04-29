@@ -17,7 +17,8 @@ class CatCmd
 			begin
 				file = File.new("#{client.context.path}/#{args[1]}", "r")
 				while (line = file.gets)
-					client.println("#{line}")
+					line = line.gsub("\n", "\r\n")
+					client.print("#{line}")
 				end
 				file.close
 
