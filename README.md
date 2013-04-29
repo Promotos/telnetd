@@ -20,6 +20,7 @@ Commands planned
 - Copy
 - Del
 - Exec
+- Fileinfo
 - Mkdir
 - Move
 - Stats
