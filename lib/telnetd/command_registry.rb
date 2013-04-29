@@ -36,7 +36,8 @@ class CommandRegistry
 	# *+client+ The client to execute the command for
 	# *+command+ The command to be executed
 	def handle(client, command)
-		cmd = strip_cmd(command)
+		command = strip_cmd(command)
+		cmd = command.split(' ')[0]
 		if @commands.has_key? cmd
 			@commands[cmd].handle(client, command)
 		else
@@ -46,8 +47,7 @@ class CommandRegistry
 
 private
 	def strip_cmd(command)
-	    result = ""
-		command = command.split(' ')[0]
+		result = ""
 		command.each_char { |c|
 			if c.eql?("\b")
 				result.chop!
