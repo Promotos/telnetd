@@ -27,5 +27,5 @@ Commands planned
 
 Known Issues
 ============
-- Cat cmd does not handle line breaks correct
-- Commands with backspaces are not correct handled. Eg. "kat\b\b\bcat"
+- (Solved) Cat cmd does not handle line breaks correct
+- (Solved) Commands with backspaces are not correct handled. Eg. "kat\b\b\bcat"
