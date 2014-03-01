@@ -30,3 +30,7 @@ Known Issues
 ============
 - (Solved) Cat cmd does not handle line breaks correct
 - (Solved) Commands with backspaces are not correct handled. Eg. "kat\b\b\bcat"
+
+Execute from Git
+============
+ruby -Ilib bin\telnetd
